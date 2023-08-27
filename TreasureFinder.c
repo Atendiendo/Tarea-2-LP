@@ -8,6 +8,9 @@
 int main(int argc, char const *argv[])
 {
     // Su codigo
+    IniciarTablero(7);
+    MostrarTablero();
+    BorrarTablero();
     return 0;
 }
 
