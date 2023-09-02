@@ -49,7 +49,13 @@ void PasarTurno(){
 
 
 void ColocarBomba(Bomba* b, int fila, int columna){
-    // Su codigo
+    fila -=1;
+    columna -=1;
+    tipos[fila][columna] = 0;
+    b->tierra_debajo = (Tierra*)tablero[fila][columna];
+    tablero[fila][columna] = (Bomba*)malloc(sizeof(Bomba));
+    ((Bomba*)tablero[fila][columna])->contador_turnos= b->contador_turnos;
+    ((Bomba*)tablero[fila][columna])->tierra_debajo= b->tierra_debajo;
     return;
 }
 
@@ -97,6 +103,9 @@ void BorrarTablero(){
     // Su codigo
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
+            if (tipos[i][j] == 0){
+                free(((Bomba*)tablero[i][j])->tierra_debajo);
+            }
             free(tablero[i][j]);
         }
         free(tipos[i]);
