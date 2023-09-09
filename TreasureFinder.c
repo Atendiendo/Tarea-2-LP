@@ -68,7 +68,7 @@ int main(int argc, char const *argv[]) {
         }
 
         printf("Seleccione una accion:\n");
-        printf("1.Colocar Bomba  2.Mostrar Bombas  3.Mostrar Tesoros  4.Borrar bomba  5.Cerrar juego\n");
+        printf("1.Colocar Bomba  2.Mostrar Bombas  3.Mostrar Tesoros  4.Cerrar juego\n");
         printf("Escoja una opcion: ");
         scanf("%d",&accion);
         printf("\n");
@@ -117,16 +117,6 @@ int main(int argc, char const *argv[]) {
             break;
         
         case 4:
-            printf("Indique coordenadas de la bomba\n");
-            printf("Fila: ");
-            scanf("%d",&fila);
-            printf("\nColumna: ");
-            scanf("%d",&columna);
-            printf("\n");
-            BorrarBomba(fila,columna);
-
-            break;
-        case 5:
             programa_en_curso = false;
             break;
         }
@@ -137,11 +127,3 @@ int main(int argc, char const *argv[]) {
 
     return 0;
 }
-
-
-/*
-    Valgrind:
-    gcc -g -o nombreprograma arch1.c arch2.c -Wall
-    valgrind --leak-check=yes ./nombreprograma
-    o --leak-check=full
-*/

@@ -13,4 +13,4 @@ Tablero.o: Tablero.c Bomba.h Tierra.h Tablero.h
 	gcc -c Tablero.c
 
 clean:
-	rm -f *.o
+	rm -f programa *.o

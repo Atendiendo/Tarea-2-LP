@@ -85,9 +85,6 @@ void ExplosionPunto(int fila, int columna){
     return;
 }
 
-
-
-//ME FALTA ESTA PURA WEA
 /*****
 * void ExplosionX
 ******

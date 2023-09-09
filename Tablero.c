@@ -22,7 +22,6 @@ int cant_tesoros_total;
 * Returns:
 *   No se retorna nada ya que la función es de tipo void.
 *****/
-
 void IniciarTablero(int n){
 
     int probabilidad_tesoro;
@@ -116,7 +115,6 @@ void ColocarBomba(Bomba* b, int fila, int columna){
 *   No se retorna nada ya que la función es de tipo void.
 *****/
 void MostrarTablero(){
-    // Su codigo
     for(int i = 0; i < dimension; i++){
         for(int j = 0; j < dimension; j++){
             if (tipos[i][j] == 1){
@@ -132,7 +130,7 @@ void MostrarTablero(){
             }
 
             if (j < dimension - 1) {
-            printf(" | ");  // Imprimir el separador si no es la última columna
+            printf(" | ");
             }
             
         }
@@ -163,7 +161,6 @@ void MostrarBombas(){
                 eje_x=j+1;
                 eje_y=i+1;
                 printf("Coordenada: %d %d\n",eje_x,eje_y);
-                //codigo dudoso
                 if (bomba->explotar == ExplosionPunto){
                     printf("Forma Explosión: ExplosionPunto\n");
                 } else if (bomba->explotar == ExplosionX){
@@ -208,7 +205,7 @@ void VerTesoros(){
             }
 
             if (j < dimension - 1) {
-            printf(" | ");  // Imprimir el separador si no es la última columna
+            printf(" | ");
             }
             
         }
@@ -229,7 +226,6 @@ void VerTesoros(){
 *   No se retorna nada ya que la función es de tipo void.
 *****/
 void BorrarTablero(){
-    // Su codigo
     for (int i = 0; i < dimension; i++) {
         for (int j = 0; j < dimension; j++) {
             if (tipos[i][j] == 0){
