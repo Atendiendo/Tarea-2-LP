@@ -35,24 +35,25 @@ int main(int argc, char const *argv[]) {
 
     IniciarTablero(tamaño_tablero);
 
-    printf("\nEmpezando juego... ¡listo!\n");
-    bool programa_en_curso = true;
+    printf("\nEmpezando juego... ¡listo!\n\n");
+    bool programa_en_curso = true, inicio = true;
     int turno = 1,accion = 0, fila, columna, tipo_bomba;
     while(programa_en_curso){
-        printf("Tablero (Turno %d)\n",turno);
-        MostrarTablero();
+        if (inicio){
+            printf("Tablero (Turno %d)\n",turno);
+            MostrarTablero();
+            printf("\n");
+            inicio = false;
+        }
 
-        
         printf("Seleccione una accion:\n");
         printf("1.Colocar Bomba  2.Mostrar Bombas  3.Mostrar Tesoros  4.Borrar bomba  5.Cerrar juego\n");
         printf("Escoja una opcion: ");
         scanf("%d",&accion);
         printf("\n");
+
         switch (accion) {
         case 1:
-            /*
-            Debo crear la bomba y insertarla y borrarla
-            */
            printf("Indique coordenadas de la bomba\n");
            printf("Fila: ");
            scanf("%d",&fila);
@@ -63,30 +64,35 @@ int main(int argc, char const *argv[]) {
            printf("Su input: ");
            scanf("%d",&tipo_bomba);
            printf("\n");
+
            switch (tipo_bomba) {
            case 1:
             Bomba bomba_punto;
             bomba_punto.contador_turnos = 1;
+            bomba_punto.explotar = ExplosionPunto;
             ColocarBomba(&bomba_punto,fila,columna);
             break;
+
            case 2:
             Bomba bomba_cruz;
             bomba_cruz.contador_turnos = 3;
+            bomba_punto.explotar = ExplosionX;
             ColocarBomba(&bomba_cruz,fila,columna);
             break;
            }
 
+            PasarTurno();
+            printf("Tablero (Turno %d)\n",turno);
+            MostrarTablero();
+            printf("\n");
+
            
             break;
         case 2:
-            /*
-            Falta MostrarBombas
-            */
+            MostrarBombas();
             break;
         case 3:
-            /*
-            Falta MostrarTesoros
-            */
+            VerTesoros();
             break;
         
         case 4:

@@ -6,7 +6,13 @@
 extern int** tipos;
 
 void TryExplotar(int fila, int columna){
-    // Su codigo
+    fila -=1;
+    columna -=1;
+    Bomba* bomba = (Bomba*)tablero[fila][columna];
+    bomba->contador_turnos -= 1;
+    if (bomba->contador_turnos == 0){
+        bomba->explotar(fila,columna);
+    }
     return;
 }
 
@@ -23,11 +29,23 @@ void BorrarBomba(int fila, int columna){
 }
 
 void ExplosionPunto(int fila, int columna){
-    // Su codigo
+    fila -=1;
+    columna -=1;
+    Bomba* bomba = (Bomba*)tablero[fila][columna];
+    bomba->tierra_debajo->vida = bomba->tierra_debajo->vida -3;
+    if (bomba->tierra_debajo->vida<0){
+        bomba->tierra_debajo->vida = 0;
+    }
+    if (bomba->tierra_debajo->vida==0){
+        BorrarBomba(fila+1,columna+1);
+    }
     return;
 }
 
 void ExplosionX(int fila, int columna){
-    // Su codigo
+    fila -=1;
+    columna -=1;
+    Bomba* bomba = (Bomba*)tablero[fila][columna];
+
     return;
 }
