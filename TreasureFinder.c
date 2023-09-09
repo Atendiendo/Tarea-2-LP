@@ -9,7 +9,19 @@
 extern int cant_tesoros_total;
 int cant_tesoros;
 
-
+/*****
+* int main
+******
+* Realiza el procesamiento principal del programa.
+* Permite interactuar con el tablero y controlar el flujo del juego.
+******
+* Input:
+*   int argc: Cantidad de argumentos en la línea de comandos.
+*   char const *argv[]: Arreglo que contiene los argumentos que se ingresan en la línea de comandos.
+******
+* Returns:
+*   int: Retorna 0 si no hay problemas en la ejecucion.
+*****/
 int main(int argc, char const *argv[]) {
     int tamaño_tablero;
 
@@ -126,11 +138,6 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-/* EJEMPLOS DE RANDOM PARA FACILITAR SU USO.
-*
-*   srand(time(0)); // Setea la seed del random.
-*   int ejemplo_vida = (rand() % 3) + 1; // Obtiene al azar la vida de Tierra a asignar.
-*/
 
 /*
     Valgrind:

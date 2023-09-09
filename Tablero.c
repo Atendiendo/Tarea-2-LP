@@ -5,12 +5,23 @@
 #include <stdlib.h>
 #include <time.h>
 
-//Tipo es 1 si es tierra
-//Tipo es 0 si es bomba
 int** tipos;
 void*** tablero;
 int dimension;
 int cant_tesoros_total;
+
+/*****
+* void IniciarTablero
+******
+* La función IniciarTablero genera una matriz de dimension n*n, con cada celda un puntero
+* al struct Tierra.
+******
+* Input:
+*   int n: n es un entero el cual representa la dimension del tablero.
+******
+* Returns:
+*   No se retorna nada ya que la función es de tipo void.
+*****/
 
 void IniciarTablero(int n){
 
@@ -43,7 +54,18 @@ void IniciarTablero(int n){
     return;
 }
 
-
+/*****
+* void PasarTurno
+******
+* La función PasarTurno, recorre toda la matriz para encontrar las bombas presentes en este.
+* Luego se llama a TryExplotar en cada una de estas. 
+******
+* Input:
+*   No recibe inputs.
+******
+* Returns:
+*   No se retorna nada ya que la función es de tipo void.
+*****/
 void PasarTurno(){
     for (int i = 0; i<dimension; i++){
         for (int j = 0; j<dimension; j++){
@@ -55,7 +77,20 @@ void PasarTurno(){
     return;
 }
 
-
+/*****
+* void ColocarBomba
+******
+* La función ColocarBomba coloca un puntero a un struct Bomba en una celda del tablero.
+* Guardando la Tierra que estaba antes, dentro de la bomba.
+******
+* Input:
+*   Bomba* b: puntero a bomba que se desea colocar en el tablero.
+*   int fila: fila en que se desea colocar la bomba.
+*   int columna: columna en que se desea colocar la bomba.
+******
+* Returns:
+*   No se retorna nada ya que la función es de tipo void.
+*****/
 void ColocarBomba(Bomba* b, int fila, int columna){
     fila -=1;
     columna -=1;
@@ -68,7 +103,18 @@ void ColocarBomba(Bomba* b, int fila, int columna){
     return;
 }
 
-
+/*****
+* void MostrarTablero
+******
+* La función MostrarTablero recorre toda la matriz mostrando las bombas,
+* tesoros descubiertos y las vidas de cada Tierra.
+******
+* Input:
+*   No recibe inputs.
+******
+* Returns:
+*   No se retorna nada ya que la función es de tipo void.
+*****/
 void MostrarTablero(){
     // Su codigo
     for(int i = 0; i < dimension; i++){
@@ -95,7 +141,18 @@ void MostrarTablero(){
     return;
 }
 
-
+/*****
+* void MostrarBombas
+******
+* La función MostrarBombas recorre toda la matriz mostrando datos relevantes
+* acerca de cada bomba.
+******
+* Input:
+*   No recibe inputs.
+******
+* Returns:
+*   No se retorna nada ya que la función es de tipo void.
+*****/
 void MostrarBombas(){
     int eje_x,eje_y;
     for(int i = 0; i < dimension; i++){
@@ -119,7 +176,17 @@ void MostrarBombas(){
     return;
 }
 
-
+/*****
+* void VerTesoros
+******
+* La función VerTesoros recorre toda la matriz mostrando cada tesoro en la matriz.
+******
+* Input:
+*   No recibe inputs.
+******
+* Returns:
+*   No se retorna nada ya que la función es de tipo void.
+*****/
 void VerTesoros(){
     for(int i = 0; i < dimension; i++){
         for(int j = 0; j < dimension; j++){
@@ -150,6 +217,17 @@ void VerTesoros(){
     return;
 }
 
+/*****
+* void BorrarTablero
+******
+* La función BorrarTablero recorre toda la matriz, liberando toda la memoria del heap.
+******
+* Input:
+*   No recibe inputs.
+******
+* Returns:
+*   No se retorna nada ya que la función es de tipo void.
+*****/
 void BorrarTablero(){
     // Su codigo
     for (int i = 0; i < dimension; i++) {
