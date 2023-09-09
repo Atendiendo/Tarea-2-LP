@@ -10,6 +10,7 @@
 int** tipos;
 void*** tablero;
 int dimension;
+int cant_tesoros_total;
 
 void IniciarTablero(int n){
 
@@ -33,6 +34,7 @@ void IniciarTablero(int n){
             probabilidad_tesoro = rand() % 100 + 1;
             if (probabilidad_tesoro >=1 && probabilidad_tesoro <= 5){
                 tierra->es_tesoro = 1;
+                cant_tesoros_total +=1;
             } else {
                 tierra->es_tesoro = 0;
             }
@@ -148,7 +150,6 @@ void VerTesoros(){
     return;
 }
 
-//Listo
 void BorrarTablero(){
     // Su codigo
     for (int i = 0; i < dimension; i++) {

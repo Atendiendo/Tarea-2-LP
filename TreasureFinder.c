@@ -6,6 +6,10 @@
 #include "Tablero.h"
 #include "Bomba.h"
 
+extern int cant_tesoros_total;
+int cant_tesoros;
+
+
 int main(int argc, char const *argv[]) {
     int tamaño_tablero;
 
@@ -45,6 +49,11 @@ int main(int argc, char const *argv[]) {
             printf("\n");
             inicio = false;
         }
+        if (cant_tesoros==cant_tesoros_total){
+            printf("GANASTE :D\n");
+            programa_en_curso = false;
+            break;
+        }
 
         printf("Seleccione una accion:\n");
         printf("1.Colocar Bomba  2.Mostrar Bombas  3.Mostrar Tesoros  4.Borrar bomba  5.Cerrar juego\n");
@@ -80,7 +89,7 @@ int main(int argc, char const *argv[]) {
             ColocarBomba(&bomba_cruz,fila,columna);
             break;
            }
-
+            turno +=1;
             PasarTurno();
             printf("Tablero (Turno %d)\n",turno);
             MostrarTablero();
@@ -114,9 +123,6 @@ int main(int argc, char const *argv[]) {
     }
     BorrarTablero();
 
-    // IniciarTablero(7);
-    // MostrarTablero();
-    // BorrarTablero();
     return 0;
 }
 
